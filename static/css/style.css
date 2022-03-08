@@ -1,0 +1,20 @@
+.page-content {
+    padding: 100px 100px;
+}
+
+.color-gray {
+    color: rgba(0, 0, 0, 0.4);
+}
+
+.sign_in_container {
+    
+    margin-top: 20px;
+    /* background-color: rgba(0, 0, 0, 0.4); */
+}
+
+.ecc {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    flex-direction: column;
+}

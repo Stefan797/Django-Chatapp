@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+{% block content %}
+
+<h1>Login</h1>
+
+{% if wrongPassword %}
+
+<p>Benutzername oder Passwort ist falsch!</p>
+
+{% endif %}
+
+<form method="POST" action="/login/">
+
+    <div class="ecc">
+        {% csrf_token %}
+        <input type="hidden" name="redirect" value="{{ redirect }}">
+        <div class="mdl-textfield mdl-js-textfield">
+            <input name="username" class="mdl-textfield__input" type="text" id="sample1">
+            <label class="mdl-textfield__label" for="sample1">Username...</label>
+        </div>
+        <div class="mdl-textfield mdl-js-textfield">
+            <input name="password" class="mdl-textfield__input" type="password" id="sample1">
+            <label class="mdl-textfield__label" for="sample1">Passwort...</label>
+        </div>
+        <button class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored">
+            Login
+        </button>
+    </div>
+    <!-- git add basic login login impemetiert -->
+    <!-- beim video drauf disgn login page -->
+
+</form>
+
+<a method="POST" action="/register/">Hier</a>
+
+{% endblock %}
