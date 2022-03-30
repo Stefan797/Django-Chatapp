@@ -4,6 +4,17 @@
 
 {% if request.user.is_authenticated %}
 
+{% endif %}
+
 <h1>Ergänze dein Profil</h1>
+
+<!-- <img src="{{ image.model_Profile }}"> -->
+
+<table>
+    <tr>
+        <td>Email</td>
+        <td>{{ email }}</td>
+    </tr>
+</table>
 
 {% endblock %}

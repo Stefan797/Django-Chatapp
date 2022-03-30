@@ -4,21 +4,23 @@
 {% if request.user.is_authenticated %}
 <!-- in django die anmeldung prüfen -->
 
-<div id="messageContainer">
-  {% for message in messages %}
-  <!-- Forschleife mit django Code fürs Html -->
-  <div>
-    <span class="color-gray">[{{ message.created_at }}]</span> {{ message.author.first_name }}: <i>{{ message.text}}</i>
+<div class="main_content_container">
+  <div id="messageContainer">
+    {% for message in messages %}
+    <!-- Forschleife mit django Code fürs Html -->
+    <div>
+      <span class="color-gray">[{{ message.created_at }}]</span> {{ message.author.first_name }}: <i>{{ message.text}}</i>
+    </div>
+    {% endfor %}
+    <!-- Für das beenden der Schleife -->
   </div>
-  {% endfor %}
-  <!-- Für das beenden der Schleife -->
 </div>
 
 <script>
   async function sendMessage() {
     let fd = new FormData();
     let token = '{{ csrf_token }}';
-    let date = 'aaaa{% now "SHORT_DATETIME_FORMAT" %}'; //https://stackoverflow.com/questions/29637768/django-present-current-date-and-time-in-template new Date mouth day // djan
+    let date = '{% now "SHORT_DATETIME_FORMAT" %}'; //https://stackoverflow.com/questions/29637768/django-present-current-date-and-time-in-template new Date mouth day // djan
     fd.append('textmessage', messageField.value);
     fd.append('csrfmiddlewaretoken', token);
     fd.append('Datum', date);

@@ -12,6 +12,9 @@ from django.core import serializers
 
 from django.contrib.auth.models import User
 
+# from .forms import UploadFileForm
+# from somewhere import handle_uploaded_file
+
 # Create your views here.
 
 @login_required(login_url='/login/')
@@ -27,6 +30,26 @@ def index(request):
         return JsonResponse(serialized_obj[1:-1], safe=False)
     chatMessages = Message.objects.filter(chat__id=1)
     return render(request, 'chat/index.html', {'messages': chatMessages})
+
+def profile_view(request):
+    # Felder einfügen Name Alter Wohnort 
+    if request.method == 'GET':
+        # form = UploadFileForm(request.POST, request.FILES)
+        # if form.is_valid():
+        #     handle_uploaded_file(request.FILES['file'])
+        #     return HttpResponseRedirect('/success/url/')
+        # else:
+        #     form = UploadFileForm()
+        current_user = request.user
+        user = User.objects.get(id=current_user.id)
+        user_email = user.email
+        return render(request, 'profile/index.html', {'email': user_email}) 
+
+
+def settings_view(request):
+    # Felder einfügen Name Alter Wohnort 
+    if request.method == 'GET':
+        return render(request, 'settings/index.html',)
 
 
 def login_view(request): 
