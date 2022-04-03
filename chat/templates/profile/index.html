@@ -1,20 +1,53 @@
 {% extends "base.html" %}
-
 {% block content %}
+
+{% load static %}
+<link rel="stylesheet" href="{% static 'css/profile.css' %}">
 
 {% if request.user.is_authenticated %}
 
+<div class="profile_page_container">
+    <div class="image_and_username_container df">
+        <img class="bild" src="../static/img/emtyuserimage.png">
+        <!-- <img class="bild" src="{{ file }}"> -->
+        <h1>{{ firstname }}</h1>
+        <form class="hidefilefield" action="" method="POST">
+            {% csrf_token %}
+            <input class="a" type="file" name="profilepicture">
+            <!-- <button>Speichern</button> -->
+        </form>
+    </div>
+    <div class="other_information_container">
+        <h2>Füge einen Status hinzu</h2>
+        <form action="" method="POST">
+            {% csrf_token %}
+            <input type="text" name="profilstatus">
+            <button>Speichern</button>
+        </form>
+        <table>
+            <tr>
+                <td>Email</td>
+                <td>{{ email }}</td>
+            </tr>
+            <tr>
+                <td>Name</td>
+                <td>{{ email }}</td>
+            </tr>
+            <tr>
+                <td>Nachname</td>
+                <td>{{ email }}</td>
+            </tr>
+        </table>
+    </div>
+</div>
+
+
 {% endif %}
 
-<h1>Ergänze dein Profil</h1>
 
-<!-- <img src="{{ image.model_Profile }}"> -->
 
-<table>
-    <tr>
-        <td>Email</td>
-        <td>{{ email }}</td>
-    </tr>
-</table>
+
+
+
 
 {% endblock %}

@@ -1,0 +1,17 @@
+.settings_page_container {
+    min-height: 80vh;
+    background-color: rgba(0,0,0, 0.2);
+    padding-left: 100px;
+    padding-right: 100px;
+}
+
+.settings_page_container {
+    min-height: 80vh;
+    background-color: rgba(0,0,0, 0.2);
+    padding-left: 100px;
+    padding-right: 100px;
+}
+
+.settings_headline {
+    color: rgba(0,0,0, 0.7);
+}

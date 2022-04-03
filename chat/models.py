@@ -21,6 +21,6 @@ class Message(models.Model): #  class Message extends models.Model
 class Profile(models.Model):
     file = models.FileField(blank=True, null=True) # <input type="file"
     user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE,) # <select><option> User1</option> ...
-
+    status = models.CharField(max_length=500, null=True)
 
     

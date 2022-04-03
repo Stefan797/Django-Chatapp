@@ -2,7 +2,7 @@ from django.dispatch import receiver
 from django.http import HttpResponseRedirect
 from django.shortcuts import redirect, render
 
-from .models import Chat, Message
+from .models import Chat, Message, Profile
 
 from django.contrib.auth import authenticate, login
 from django.contrib.auth.decorators import login_required
@@ -31,19 +31,29 @@ def index(request):
     chatMessages = Message.objects.filter(chat__id=1)
     return render(request, 'chat/index.html', {'messages': chatMessages})
 
+# def search(q, user_id):
+#     uid = User.objects.get(pk=user_id)
+
 def profile_view(request):
     # Felder einfügen Name Alter Wohnort 
     if request.method == 'GET':
+        current_user = request.user
+        user = User.objects.get(id=current_user.id)
+        user_email = user.email
+        user_firstname = user.first_name
+        return render(request, 'profile/index.html', {'email': user_email, 'firstname': user_firstname}) 
+    if request.method == 'POST':
+        profile = Profile.objects.get(user=request.user)
+        profile.file = request.POST.get('profilepicture','')
+        profile.save()
+        return render(request, 'profile/index.html', {'email': request.user.email, 'file':  profile.file}) 
+
         # form = UploadFileForm(request.POST, request.FILES)
         # if form.is_valid():
         #     handle_uploaded_file(request.FILES['file'])
         #     return HttpResponseRedirect('/success/url/')
         # else:
         #     form = UploadFileForm()
-        current_user = request.user
-        user = User.objects.get(id=current_user.id)
-        user_email = user.email
-        return render(request, 'profile/index.html', {'email': user_email}) 
 
 
 def settings_view(request):

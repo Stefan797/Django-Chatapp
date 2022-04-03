@@ -6,8 +6,16 @@
 
 {% endif %}
 
-<h1>Suche Chatteilnehmer</h1>
+{% load static %}
+<link rel="stylesheet" href="{% static 'css/settings.css' %}">
 
-<input type="text">
+<div class="settings_page_container ecc">
+    <h1 class="settings_headline">Suche Chatteilnehmer</h1>
+
+    <input onkeydown="searchUser()" type="text">
+    
+    <button>Logout</button>
+    <button>Delete your Account</button>
+</div>
 
 {% endblock %}
