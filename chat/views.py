@@ -1,15 +1,11 @@
 from django.dispatch import receiver
 from django.http import HttpResponseRedirect
 from django.shortcuts import redirect, render
-
 from .models import Chat, Message, Profile
-
 from django.contrib.auth import authenticate, login
 from django.contrib.auth.decorators import login_required
-
 from django.http import JsonResponse
 from django.core import serializers
-
 from django.contrib.auth.models import User
 
 # from .forms import UploadFileForm
@@ -31,22 +27,27 @@ def index(request):
     chatMessages = Message.objects.filter(chat__id=1)
     return render(request, 'chat/index.html', {'messages': chatMessages})
 
-# def search(q, user_id):
+# def search(request):
+#     if request.method == 'POST':
+#         return render(request, 'profile/index.html', {})
 #     uid = User.objects.get(pk=user_id)
 
 def profile_view(request):
     # Felder einfügen Name Alter Wohnort 
+    user = request.user
+    profile = Profile.objects.get(user=request.user)
+
     if request.method == 'GET':
-        current_user = request.user
-        user = User.objects.get(id=current_user.id)
         user_email = user.email
         user_firstname = user.first_name
-        return render(request, 'profile/index.html', {'email': user_email, 'firstname': user_firstname}) 
+        user_lastname = user.last_name
+        # user_profile_data = Profile.objects.get() ??? gleicher User wie bei Profiles der User name ist !
+        return render(request, 'profile/index.html', {'email': user_email, 'file':  profile.file, 'firstname': user_firstname, 'lastname': user_lastname, 'status': profile.status}) 
     if request.method == 'POST':
-        profile = Profile.objects.get(user=request.user)
+        profile.status = request.POST.get('profilstatus','')
         profile.file = request.POST.get('profilepicture','')
         profile.save()
-        return render(request, 'profile/index.html', {'email': request.user.email, 'file':  profile.file}) 
+        return render(request, 'profile/index.html', {'email': request.user.email, 'file':  profile.file, 'status': profile.status}) 
 
         # form = UploadFileForm(request.POST, request.FILES)
         # if form.is_valid():
@@ -57,10 +58,11 @@ def profile_view(request):
 
 
 def settings_view(request):
-    # Felder einfügen Name Alter Wohnort 
     if request.method == 'GET':
         return render(request, 'settings/index.html',)
-
+    # if request.method == 'POST':
+    #     value = request.POST.get('searchvalue','')
+    #     return render(request, 'profile/index.html', {'value': value})
 
 def login_view(request): 
     redirect = request.GET.get('next')

@@ -17,43 +17,45 @@
 <script defer src="{% static 'js/chat.js' %}"></script>
 
 <div class="chat_page_container">
-  <div class="chat_participant_container lightblue">
-     <div class="chat_participant_box">
 
-     </div>
+  <div class="chat_participant_container">
+    <div class="chat_participant_box ec">
+      <img class="userimage" src="../static/img/emtyuserimage.png">
+      <span>Nutzername</span>
+    </div>
   </div>
 
   <div class="chat_container">
-    <div id="messageContainer">
+    <div class="messages_container" id="messageContainer">
       {% for message in messages %}
-      <!-- Forschleife mit django Code fürs Html -->
-      
-        {% if message.author == user %}
-        <div class="message_line_right">
+      {% if message.author == user %}
+      <div class="message_line_right">
+        <div class="message_bubble">
           <span>[{{ message.created_at }}]</span> {{ message.author.first_name }}: <i>{{message.text}}</i>
         </div>
-        {% else %}
-        <div class="message_line_left">
+      </div>
+      {% else %}
+      <div class="message_line_left">
+        <div class="message_bubble">
           <span>[{{ message.created_at }}]</span> {{ message.author.first_name }}: <i>{{message.text}}</i>
         </div>
-        
-        {% endif %}
+      </div>
+
+      {% endif %}
       {% endfor %}
       <!-- Für das beenden der Schleife -->
     </div>
-    <form class="sendmessage_box lightblue" onsubmit="sendMessage(); return false;" method="post">
+    <form class="sendmessage_box" onsubmit="sendMessage(); return false;" method="post">
       <!-- return false weil action trotzdem gesendet wird obwohl es nicht da steht -->
       {% csrf_token %}
-      <!-- django code der im Hintergrund zu html umgewandelt wird -->
-      <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-        <input class="mdl-textfield__input" name="textmessage" type="text" id="messageField">
-        <label class="mdl-textfield__label" for="messageField">Text...</label>
+      <div class="df">
+        <input autocomplete="off" placeholder="Schreibe deinen Text" class="inputmessagetext" name="textmessage" type="text" id="messageField">
+        <button class="button2">Senden</button>
       </div>
-      <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent">
-        Send
-      </button>
     </form>
   </div>
+
+
 </div>
 
 {% else %}

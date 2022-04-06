@@ -7,36 +7,54 @@
     width: 20vw;
     height: 80vh;
     margin-right: 20px;
-    border: 4px solid black;
+    box-shadow: 0 -1px 6px 4px #000000e6;
 }
 
 .chat_participant_box {
     height: 100px;
     width: 100%;
-    background-color: yellow;
+    border-bottom: 2px solid gray;
+}
+
+.userimage {
+    height: 50px;
+    width: 50px;
+    border-radius: 50%;
+    margin-left: -100px;
+    margin-right: 8px;
 }
 
 .chat_container {
-    border: 4px solid black;
+    /* border: 4px solid black; */
     width: 80vw;
     position: relative;
 }
 
-.chat_container:first-child {
+.messages_container {
+    /* background-color: aqua; */
+    height: fit-content;
+    display: flex;
+    justify-content: flex-start;
+    flex-direction: column;
+    padding-left: 8px;
+    padding-right: 8px;
+}
+
+.message_line_right {
+    margin-bottom: 8px;
+    width: 100%;
     display: flex;
     justify-content: flex-end;
 }
 
-.message_line_right {
-    width: 300px;
+.message_line_left {
     margin-bottom: 8px;
-    background-color: lightcoral;
+    width: 100%;
 }
 
-.message_line_left {
-    width: 300px;
-    margin-bottom: 8px;
+.message_bubble {
     background-color: lightcoral;
+    width: 300px;
 }
 
 .sendmessage_box {
@@ -47,4 +65,30 @@
 
 .lightblue {
     background-color: lightblue;
+}
+
+
+.inputmessagetext {
+    height: 40px;
+    width: 80%;
+    border: none;
+    margin-bottom: -4px;
+    outline: none;
+    margin-left: 4px;
+}
+
+.button2 {
+    height: 45px;
+    width: 20%;
+    font-size: 16px;
+    color: rgb(255,255,255);
+    background-color: rgb(63,81,181);
+    border-radius: 4px;
+    border: none;
+    margin-right: 34px;
+    font-size: 16px;
+}
+
+.button2:hover {
+   cursor: pointer;
 }

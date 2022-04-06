@@ -9,13 +9,33 @@
 {% load static %}
 <link rel="stylesheet" href="{% static 'css/settings.css' %}">
 
-<div class="settings_page_container ecc">
-    <h1 class="settings_headline">Suche Chatteilnehmer</h1>
+<div class="settings_page_container df">
+    <div class="searchbox_container ec">
+        <div class="ecc">
+            <h1 class="settings_headline">Suche Chatteilnehmer</h1>
+            <form class="df" action="">
+                <input class="input_settings" autocomplete="off" placeholder="Suchen" name="searchvalue" onkeydown="searchUser()" type="text">
+                <button class="button4">Hinzufügen</button>
+            </form>
+            <!-- <div class="user_response_container">
+                <div>
 
-    <input onkeydown="searchUser()" type="text">
-    
-    <button>Logout</button>
-    <button>Delete your Account</button>
+                </div>
+            </div> -->
+        </div>
+    </div>
+    <div class="logout_and_account_delete_container ec">
+        <div class="ecc">
+            <div class="box ec">
+                <img src="../static/img/logout.png" class="picture">
+                <button class="button">Ausloggen</button>
+            </div>
+            <div class="box ec">
+                <img src="../static/img/deleteaccount.png"  class="picture">
+                <button class="button">Lösche deinen Account</button>
+            </div>
+        </div>
+    </div>
 </div>
 
 {% endblock %}

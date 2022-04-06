@@ -8,8 +8,8 @@
 
 <div class="profile_page_container">
     <div class="image_and_username_container df">
-        <img class="bild" src="../static/img/emtyuserimage.png">
-        <!-- <img class="bild" src="{{ file }}"> -->
+        <!-- <img class="bild" src="../static/img/emtyuserimage.png"> -->
+        <img class="bild" src="../static/uploads/{{ file }}">
         <h1>{{ firstname }}</h1>
         <form class="hidefilefield" action="" method="POST">
             {% csrf_token %}
@@ -17,37 +17,28 @@
             <!-- <button>Speichern</button> -->
         </form>
     </div>
-    <div class="other_information_container">
-        <h2>Füge einen Status hinzu</h2>
-        <form action="" method="POST">
-            {% csrf_token %}
-            <input type="text" name="profilstatus">
-            <button>Speichern</button>
-        </form>
-        <table>
-            <tr>
-                <td>Email</td>
-                <td>{{ email }}</td>
-            </tr>
-            <tr>
-                <td>Name</td>
-                <td>{{ email }}</td>
-            </tr>
-            <tr>
-                <td>Nachname</td>
-                <td>{{ email }}</td>
-            </tr>
-        </table>
+    <!-- if else abfrage einbauen ? wie geht die syntax ? -->
+    <div class="status_container ec">
+        <div class="ec">
+            <h3>Füge einen Status hinzu</h3>
+            <form class="df" action="" method="POST">
+                {% csrf_token %}
+                <input autocomplete="off" placeholder="z.B. Programmieren ist super :)" class="input_s" type="text" name="profilstatus">
+                <button class="button3">Speichern</button>
+            </form>
+        </div>
     </div>
+
+    <!-- else status angezeigt <div class="status_container">
+        
+    </div>  -->
+    
+    <div class="other_infos_container ec">
+        <p class="paragraph">{{ firstname }}</p>
+        <p class="paragraph">{{ lastname }}</p>
+        <p class="paragraph">{{ email }}</p>
+    </div>
+    <h3></h3>
 </div>
-
-
 {% endif %}
-
-
-
-
-
-
-
 {% endblock %}
