@@ -23,6 +23,32 @@
     flex-direction: column;
 }
 
+.eccc {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
 .df {
     display: flex;
+}
+
+.ml {
+    margin-left: 100px;
+}
+
+.mt {
+    margin-top: 24px;
+}
+
+@media(max-width: 500px) {
+    .ml {
+        margin-left: 18px;
+    }
+
+    .mdl-layout-title {
+        margin-left: -48px;
+        font-size: 16px;
+    }
 }

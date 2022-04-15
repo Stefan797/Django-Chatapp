@@ -1,0 +1,109 @@
+.profile_page_container {
+    height: 80vh;
+
+    .image_and_username_container {
+        padding-top: 100px;
+        width: 100vw;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-bottom: 50px;
+        position: relative;
+
+        img {
+            height: 300px;
+            width: 300px;
+            border-radius: 50%;
+            margin-right: 50px;
+        }
+
+        h1 {
+            color: blue;
+        }
+
+        form {
+            position: absolute;
+            input {
+                z-index: 4;
+            }
+            button {
+                button:hover {
+                    cursor: pointer;
+                }
+            }
+        }
+    }
+
+    .status_container {
+        padding-top: 20px;
+
+        div {
+            h3 {
+                color: blue;
+            }
+
+            form {
+                input {
+                    height: 40px;
+                    width: 300px;
+                    border: none;
+                    outline: none;
+                    margin-left: 40px;
+                    margin-right: 8px;
+                    color: black;
+                }
+
+                button {
+                    height: 40px;
+                    width: 20%;
+                    font-size: 16px;
+                    color: rgb(255,255,255);
+                    background-color: rgb(63,81,181);
+                    border-radius: 4px;
+                    border: none;
+                    margin-right: 34px;
+                    font-size: 16px;
+                    .button:hover {
+                        cursor: pointer;
+                    }
+                }
+            }
+        }
+    }
+
+    .status_container_with_value {
+        p {
+            font-size: 10px;
+            color: gray;
+        }
+        font-size: 20px;
+    }
+
+    .other_infos_container {
+        height: 200px;
+        width: 100vw;
+        p {
+            margin-left: 8px;
+            margin-left: 8px;
+        }
+    }
+}
+
+@media(max-width: 500px) {
+    .profile_page_container {
+        overflow-y: hidden; 
+    
+        .image_and_username_container {
+            padding-top: 35px; 
+            flex-direction: column; 
+            margin-bottom: -10px; 
+            img {
+                margin-right: 0px; 
+            }
+        }
+
+        .other_infos_container {
+            height: 100px;
+        }
+    }    
+}

@@ -19,9 +19,12 @@ from django.urls import path
 from chat.views import index, login_view, register_view, profile_view, settings_view
 # ,register_view - die Zeile drüber hinmachen 
 
+handler404 = 'chat.views.settings_view' # /chat/views.py settings_view()
+
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('chat/', index),
+    # path('chat/', index),
+    path('chat/<str:name>', index),
     path('login/', login_view),
     path('register/', register_view),
     path('profile/', profile_view),

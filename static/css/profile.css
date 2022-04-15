@@ -1,80 +1,93 @@
 .profile_page_container {
-    height: 80vh;
-    /* background-color: aqua; */
+  height: 80vh;
+}
+.profile_page_container .image_and_username_container {
+  padding-top: 100px;
+  width: 100vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 50px;
+  position: relative;
+}
+.profile_page_container .image_and_username_container img {
+  height: 300px;
+  width: 300px;
+  border-radius: 50%;
+  margin-right: 50px;
+}
+.profile_page_container .image_and_username_container h1 {
+  color: blue;
+}
+.profile_page_container .image_and_username_container form {
+  position: absolute;
+}
+.profile_page_container .image_and_username_container form input {
+  z-index: 4;
+}
+.profile_page_container .image_and_username_container form button button:hover {
+  cursor: pointer;
+}
+.profile_page_container .status_container {
+  padding-top: 20px;
+}
+.profile_page_container .status_container div h3 {
+  color: blue;
+}
+.profile_page_container .status_container div form input {
+  height: 40px;
+  width: 300px;
+  border: none;
+  outline: none;
+  margin-left: 40px;
+  margin-right: 8px;
+  color: black;
+}
+.profile_page_container .status_container div form button {
+  height: 40px;
+  width: 20%;
+  font-size: 16px;
+  color: rgb(255, 255, 255);
+  background-color: rgb(63, 81, 181);
+  border-radius: 4px;
+  border: none;
+  margin-right: 34px;
+  font-size: 16px;
+}
+.profile_page_container .status_container div form button .button:hover {
+  cursor: pointer;
+}
+.profile_page_container .status_container_with_value {
+  font-size: 20px;
+}
+.profile_page_container .status_container_with_value p {
+  font-size: 10px;
+  color: gray;
+}
+.profile_page_container .other_infos_container {
+  height: 200px;
+  width: 100vw;
+}
+.profile_page_container .other_infos_container p {
+  margin-left: 8px;
+  margin-left: 8px;
 }
 
-.image_and_username_container {
-    padding-top: 100px;
-    /* border: 4px solid black; */
-    width: 100vw;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin-bottom: 50px;
-    position: relative;
+@media (max-width: 500px) {
+  .profile_page_container {
+    overflow-y: hidden;
+  }
+  .profile_page_container .image_and_username_container {
+    padding-top: 35px;
+    flex-direction: column;
+    margin-bottom: -10px;
+  }
+  .profile_page_container .image_and_username_container img {
+    margin-right: 0px;
+  }
+  .profile_page_container .other_infos_container {
+    height: 100px;
+  }
 }
 
-.hidefilefield {
-    position: absolute;
-}
-
-.a {
-    z-index: 4;
-}
-
-.bild {
-    height: 300px;
-    width: 300px;
-    border-radius: 50%;
-    margin-right: 50px;
-}
-
-.bild:hover {
-    cursor: pointer;
-}
-
-/* Status Container Klassen */
-
-.status_container {
-    padding-top: 20px;
-}
-
-.input_s {
-    height: 40px;
-    width: 300px;
-    border: none;
-    outline: none;
-    margin-left: 40px;
-    margin-right: 8px;
-    color: black;
-}
-
-.button3 {
-    height: 40px;
-    width: 20%;
-    font-size: 16px;
-    color: rgb(255,255,255);
-    background-color: rgb(63,81,181);
-    border-radius: 4px;
-    border: none;
-    margin-right: 34px;
-    font-size: 16px;
-}
-
-.button3:hover {
-   cursor: pointer;
-}
-
-/* Basic Informations Container Klassen */
-
-.other_infos_container {
-    height: 200px;
-    width: 100vw;
-}
-
-.paragraph {
-    margin-left: 8px;
-    margin-left: 8px;
-}
-
-
+/*# sourceMappingURL=profile.css.map */

@@ -1,72 +1,95 @@
 .settings_page_container {
-    min-height: 80vh;
-    /* background-color: rgba(0,0,0, 0.2); */
-    /* padding-left: 100px;
-    padding-right: 100px; */
+  min-height: 80vh;
+}
+.settings_page_container .searchbox_container {
+  width: 50vw;
+  height: 80vh;
+}
+.settings_page_container .searchbox_container div h1 {
+  color: rgba(0, 0, 0, 0.7);
+}
+.settings_page_container .searchbox_container div form input {
+  height: 40px;
+  width: 300px;
+  border: none;
+  outline: none;
+  margin-left: 40px;
+  margin-right: 8px;
+  color: black;
+}
+.settings_page_container .searchbox_container div form button {
+  height: 40px;
+  width: 20%;
+  font-size: 16px;
+  color: rgb(255, 255, 255);
+  background-color: rgb(63, 81, 181);
+  border-radius: 4px;
+  border: none;
+  margin-right: 34px;
+  font-size: 16px;
+}
+.settings_page_container .searchbox_container div form button .button:hover {
+  cursor: pointer;
+}
+.settings_page_container .logout_and_account_delete_container {
+  width: 50vw;
+  height: 80vh;
+}
+.settings_page_container .logout_and_account_delete_container .placement {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  flex-direction: column;
+}
+.settings_page_container .logout_and_account_delete_container .placement div {
+  height: 250px;
+  width: 300px;
+}
+.settings_page_container .logout_and_account_delete_container .placement div img {
+  height: 80px;
+  width: 80px;
+  object-fit: cover;
+  margin-right: 8px;
+}
+.settings_page_container .logout_and_account_delete_container .placement div button {
+  background-color: aliceblue;
+  border: none;
+  color: black;
+  height: 30px;
+  width: 120px;
+}
+.settings_page_container .logout_and_account_delete_container .placement div button .button:hover {
+  cursor: pointer;
 }
 
-.searchbox_container {
-    width: 50vw;
-    height: 80vh;
-    /* background-color: aqua; */
+@media (max-width: 500px) {
+  .settings_page_container {
+    min-height: 20vh;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+  }
+  .settings_page_container .searchbox_container {
+    height: 40vh;
+  }
+  .settings_page_container .searchbox_container .frame {
+    width: 100%;
+  }
+  .settings_page_container .searchbox_container .frame h1 {
+    font-size: 20px;
+  }
+  .settings_page_container .searchbox_container .frame form input {
+    width: 100px;
+  }
+  .settings_page_container .searchbox_container .frame form button {
+    width: 80%;
+  }
+  .settings_page_container .logout_and_account_delete_container {
+    height: 35vh;
+  }
+  .settings_page_container .logout_and_account_delete_container .placement div {
+    height: 180px;
+  }
 }
 
-.logout_and_account_delete_container {
-    width: 50vw;
-    height: 80vh;
-    /* background-color: orchid; */
-}
-
-.box {
-    height: 250px;
-    width: 300px;
-}
-
-.picture {
-    height: 80px;
-    width: 80px;
-    object-fit: cover;
-    margin-right: 8px;
-}
-
-.button {
-    background-color: aliceblue;
-    border: none;
-    color: black;
-    height: 30px;
-    width: 120px;
-}
-
-.button:hover {
-    cursor: pointer;
-}
-
-.settings_headline {
-    color: rgba(0,0,0, 0.7);
-}
-
-.input_settings {
-    height: 40px;
-    width: 300px;
-    border: none;
-    outline: none;
-    margin-left: 40px;
-    margin-right: 8px;
-    color: black;
-}
-
-.button4 {
-    height: 40px;
-    width: 20%;
-    font-size: 16px;
-    color: rgb(255,255,255);
-    background-color: rgb(63,81,181);
-    border-radius: 4px;
-    border: none;
-    margin-right: 34px;
-    font-size: 16px;
-}
-
-.button4:hover {
-   cursor: pointer;
-}
+/*# sourceMappingURL=settings.css.map */

@@ -2,26 +2,27 @@
 {% block content %}
 
 {% if request.user.is_authenticated %}
-<!-- in django die anmeldung prüfen -->
 
 {% load static %}
 <link rel="stylesheet" href="{% static 'css/chat.css' %}">
-<!-- <link rel="stylesheet" href="{% static 'css/style.css' %}"> -->
-<!-- warum wird die style.css nicht angewendet ?-->
 
 <script>
+  const userfirstname = '{{ request.user.first_name }}';
   const user = '{{request.user}}';
+  const token = '{{ csrf_token }}';
+  const date = '{% now "SHORT_DATETIME_FORMAT" %}';
+  const chatuser = '{{ chatuser }}';
   console.log(user);
 </script>
-<!-- Brauch ich das hier ? darüber -->
+
 <script defer src="{% static 'js/chat.js' %}"></script>
 
 <div class="chat_page_container">
 
   <div class="chat_participant_container">
-    <div class="chat_participant_box ec">
-      <img class="userimage" src="../static/img/emtyuserimage.png">
-      <span>Nutzername</span>
+    <div>
+      <img src="../{{ profile.file }}">
+      <span>{{ chatuser }}</span>
     </div>
   </div>
 
@@ -30,17 +31,16 @@
       {% for message in messages %}
       {% if message.author == user %}
       <div class="message_line_right">
-        <div class="message_bubble">
+        <div class="speech-bubble-right">
           <span>[{{ message.created_at }}]</span> {{ message.author.first_name }}: <i>{{message.text}}</i>
         </div>
       </div>
       {% else %}
       <div class="message_line_left">
-        <div class="message_bubble">
+        <div class="speech-bubble-left">
           <span>[{{ message.created_at }}]</span> {{ message.author.first_name }}: <i>{{message.text}}</i>
         </div>
       </div>
-
       {% endif %}
       {% endfor %}
       <!-- Für das beenden der Schleife -->
@@ -48,14 +48,12 @@
     <form class="sendmessage_box" onsubmit="sendMessage(); return false;" method="post">
       <!-- return false weil action trotzdem gesendet wird obwohl es nicht da steht -->
       {% csrf_token %}
-      <div class="df">
-        <input autocomplete="off" placeholder="Schreibe deinen Text" class="inputmessagetext" name="textmessage" type="text" id="messageField">
-        <button class="button2">Senden</button>
+      <div>
+        <input autocomplete="off" placeholder="Schreibe deinen Text" name="textmessage" type="text" id="messageField">
+        <button>Senden</button>
       </div>
     </form>
   </div>
-
-
 </div>
 
 {% else %}
@@ -68,3 +66,4 @@
 <!-- die if Abfrage beenden -->
 
 {% endblock %}
+

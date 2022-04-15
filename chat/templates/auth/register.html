@@ -3,11 +3,11 @@
 
 {% if wrongPassword %}
 
-<p>Eines der eingegebenen Daten ist falsch bitte wiederholen sie alle Eingaben</p>
+<p class="ml">Eines der eingegebenen Daten ist falsch bitte wiederholen sie alle Eingaben</p>
 
 {% endif %}
 
-<form method="POST" action="/register/">
+<form class="ml mt" method="POST" action="/register/">
 
     <div class="sign_in_container ecc">
         {% csrf_token %}
@@ -28,7 +28,7 @@
             <input name="repeated_password" class="mdl-textfield__input" type="password" id="sample1">
             <label class="mdl-textfield__label" for="sample1">Nochmal Passwort eingeben...</label>
         </div>
-        <button class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored">
+        <button class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored mt">
             Registrieren
         </button>
     </div>

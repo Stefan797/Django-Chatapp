@@ -1,15 +1,15 @@
 {% extends "base.html" %}
 {% block content %}
 
-<h1>Login</h1>
+<h1 class="ml mt">Login</h1>
 
 {% if wrongPassword %}
 
-<p>Benutzername oder Passwort ist falsch!</p>
+<p class="ml">Benutzername oder Passwort ist falsch!</p>
 
 {% endif %}
 
-<form method="POST" action="/login/">
+<form class="ml" method="POST" action="/login/">
 
     <div class="ecc">
         {% csrf_token %}
@@ -30,9 +30,10 @@
     <!-- beim video drauf disgn login page -->
 
 </form>
-<p>
-    Neue hier klicken sie auf den LInk neuen Acout erstellen
-</p>
-<a method="POST" action="/register/">Neuen Account</a>
-
+<div class="ml mt">
+    <p>
+        Neu hier ? Klicken sie auf den Link "Neuer Account".
+    </p>
+    <a method="POST" action="/register/">Neuer Account</a>
+</div>
 {% endblock %}

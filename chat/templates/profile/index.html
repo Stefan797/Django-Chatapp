@@ -7,36 +7,40 @@
 {% if request.user.is_authenticated %}
 
 <div class="profile_page_container">
+
     <div class="image_and_username_container df">
         <!-- <img class="bild" src="../static/img/emtyuserimage.png"> -->
-        <img class="bild" src="../static/uploads/{{ file }}">
+        <img src="../{{ file }}">
         <h1>{{ firstname }}</h1>
-        <form class="hidefilefield" action="" method="POST">
+        <form action="" method="POST">
             {% csrf_token %}
-            <input class="a" type="file" name="profilepicture">
-            <!-- <button>Speichern</button> -->
+            <input type="file" name="profilepicture">
+            <button>Speichern</button>
         </form>
     </div>
     <!-- if else abfrage einbauen ? wie geht die syntax ? -->
-    <div class="status_container ec">
+    {% if not status %}
+    <div class="status_container ecc">
         <div class="ec">
             <h3>Füge einen Status hinzu</h3>
             <form class="df" action="" method="POST">
                 {% csrf_token %}
-                <input autocomplete="off" placeholder="z.B. Programmieren ist super :)" class="input_s" type="text" name="profilstatus">
-                <button class="button3">Speichern</button>
+                <input autocomplete="off" placeholder="z.B. Programmieren ist super :)" type="text" name="profilstatus">
+                <button>Speichern</button>
             </form>
         </div>
     </div>
 
-    <!-- else status angezeigt <div class="status_container">
-        
-    </div>  -->
-    
+   {% else %}
+    <div class="status_container_with_value eccc">
+        <p>Dein Status</p>
+        {{ status }}
+    </div> 
+    {% endif %}
     <div class="other_infos_container ec">
-        <p class="paragraph">{{ firstname }}</p>
-        <p class="paragraph">{{ lastname }}</p>
-        <p class="paragraph">{{ email }}</p>
+        <p>{{ firstname }}</p>
+        <p>{{ lastname }}</p>
+        <p>{{ email }}</p>
     </div>
     <h3></h3>
 </div>
