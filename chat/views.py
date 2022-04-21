@@ -11,18 +11,14 @@ from django.db.models import Q
 
 # Create your views here.
 
-def handler404(request, *args, **argv):
-    return redirect('settings')
+# def handler404(request, *args, **argv):
+#     return redirect('settings')
 
 @login_required(login_url='/login/')
 def index(request, name):
     print('recived', name)
-    chat_user = User.objects.get(username = name )
+    chat_user = User.objects.get(username = name)
     chatuserprofile, created = Profile.objects.get_or_create(user = chat_user)
-
-    """
-    This is a view to render the chat html.
-    """
     if request.method == 'POST':
         print("Received data " + request.POST['textmessage'])
         myChat = Chat.objects.get(id=1)
@@ -34,7 +30,7 @@ def index(request, name):
     print('FILE IS', chatuserprofile.file)
     return render(request, 'chat/index.html', {'messages': chatMessages, 'chatuser': name, 'profile': chatuserprofile})
 
-def login_view(request): 
+def login_view(request):
     redirect = request.GET.get('next')
     if request.method == 'POST':
         user = authenticate(username=request.POST.get('username'), password=request.POST.get('password'))
@@ -47,6 +43,9 @@ def login_view(request):
     return render(request, 'auth/login.html', {'redirect': redirect})
 
 def register_view(request):
+    """
+    With the post method, new users can be added by providing such as username, email, password. For the existing Django user model.
+    """
     # print('DATEN', request.POST) = um die request daten in der Console anzusehen 
     if request.method == 'POST': 
         if request.POST.get('password') == request.POST.get('repeated_password'):
@@ -59,18 +58,27 @@ def register_view(request):
 # Pages functions start
 
 def profile_view(request):
+    """
+    Loads the profile page and using the Get or Post method.
+    """
     user = request.user
     profile = Profile.objects.get(user=request.user)
     if request.method == 'GET':
         user_email = user.email
         user_firstname = user.first_name
         user_lastname = user.last_name
-        return render(request, 'profile/index.html', {'email': user_email, 'file':  profile.file, 'firstname': user_firstname, 'lastname': user_lastname, 'status': profile.status}) 
+        return render(request, 'profile/index.html', {'email': user_email, 'file':  profile.file, 'status': profile.status, 'firstname': user_firstname, 'lastname': user_lastname}) 
     if request.method == 'POST':
-        profile.status = request.POST.get('profilstatus','')
-        profile.file = request.POST.get('profilepicture','')
+        if (request.POST.get('profilstatus')):
+            profile.status = request.POST.get('profilstatus')
+        # profile.save()
+        print(request.FILES)
+        if (request.FILES.get('profilepicture')):
+            profile.file = request.FILES.get('profilepicture')
+
+        print(profile.file)
         profile.save()
-        return render(request, 'profile/index.html', {'email': request.user.email, 'file':  profile.file, 'status': profile.status}) 
+        return render(request, 'profile/index.html', {'email': request.user.email, 'file':  profile.file, 'status': profile.status, 'firstname': request.user.first_name, 'lastname': request.user.last_name}) 
 
 @login_required(login_url='/login/')
 def settings_view(request, exception=None):

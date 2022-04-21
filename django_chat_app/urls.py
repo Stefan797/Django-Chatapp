@@ -23,7 +23,6 @@ handler404 = 'chat.views.settings_view' # /chat/views.py settings_view()
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    # path('chat/', index),
     path('chat/<str:name>', index),
     path('login/', login_view),
     path('register/', register_view),

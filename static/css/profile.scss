@@ -17,19 +17,18 @@
             margin-right: 50px;
         }
 
+        img:hover {
+            cursor: pointer;
+        }
+
         h1 {
-            color: blue;
+            color: rgb(63,81,181);
         }
 
         form {
             position: absolute;
             input {
-                z-index: 4;
-            }
-            button {
-                button:hover {
-                    cursor: pointer;
-                }
+                display: none;
             }
         }
     }
@@ -39,7 +38,7 @@
 
         div {
             h3 {
-                color: blue;
+                color: rgb(63,81,181);
             }
 
             form {
@@ -63,9 +62,11 @@
                     border: none;
                     margin-right: 34px;
                     font-size: 16px;
-                    .button:hover {
-                        cursor: pointer;
-                    }
+                    
+                }
+
+                button:hover {
+                    cursor: pointer;
                 }
             }
         }

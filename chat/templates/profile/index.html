@@ -9,18 +9,22 @@
 <div class="profile_page_container">
 
     <div class="image_and_username_container df">
-        <!-- <img class="bild" src="../static/img/emtyuserimage.png"> -->
+
+        {% if not file %}
+        <img src="../static/img/emtyuserimage.png" onclick="fileinput.click()">
+        {% else %}
         <img src="../{{ file }}">
+        {% endif %}
+
         <h1>{{ firstname }}</h1>
-        <form action="" method="POST">
+        <form action="" method="POST" id="myForm" enctype="multipart/form-data">
             {% csrf_token %}
-            <input type="file" name="profilepicture">
-            <button>Speichern</button>
+            <input id="fileinput" onchange="myForm.submit()" type="file" name="profilepicture">
         </form>
     </div>
     <!-- if else abfrage einbauen ? wie geht die syntax ? -->
     {% if not status %}
-    <div class="status_container ecc">
+    <div class="status_container eccc">
         <div class="ec">
             <h3>Füge einen Status hinzu</h3>
             <form class="df" action="" method="POST">

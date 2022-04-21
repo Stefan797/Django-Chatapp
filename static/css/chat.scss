@@ -53,24 +53,24 @@
                 justify-content: flex-end;
                 .speech-bubble-right {
                     position: relative;
-                    background: #7383F6;
-                    border-radius: .4em;
+                    background: #7383f6;
+                    border-radius: 0.4em;
                     width: 35%;
                     min-height: 50px;
                     height: fit-content;
                     word-break: break-all;
                     padding: 2px 2px 2px 2px;
                 }
-                  
+
                 .speech-bubble-right:after {
-                    content: '';
+                    content: "";
                     position: absolute;
                     bottom: 0;
                     right: 10%;
                     width: 0;
                     height: 0;
                     border: 20px solid transparent;
-                    border-top-color: #7383F6;
+                    border-top-color: #7383f6;
                     border-bottom: 0;
                     border-right: 0;
                     margin-left: -10px;
@@ -82,23 +82,23 @@
                 width: 100%;
                 .speech-bubble-left {
                     position: relative;
-                    background: #E9E8F7;
-                    border-radius: .4em;
+                    background: #e9e8f7;
+                    border-radius: 0.4em;
                     width: 35%;
                     min-height: 50px;
                     word-break: break-all;
-                    padding: 2px 2px 2px 2px; 
+                    padding: 2px 2px 2px 2px;
                 }
-                
+
                 .speech-bubble-left:after {
-                    content: '';
+                    content: "";
                     position: absolute;
                     bottom: 0;
                     left: 10%;
                     width: 0;
                     height: 0;
                     border: 20px solid transparent;
-                    border-top-color: #E9E8F7;
+                    border-top-color: #e9e8f7;
                     border-bottom: 0;
                     border-left: 0;
                     margin-left: -10px;
@@ -115,7 +115,7 @@
 
         div {
             display: flex;
-            
+
             input {
                 height: 40px;
                 width: 80%;
@@ -129,8 +129,8 @@
                 height: 45px;
                 width: 20%;
                 font-size: 16px;
-                color: rgb(255,255,255);
-                background-color: rgb(63,81,181);
+                color: rgb(255, 255, 255);
+                background-color: rgb(63, 81, 181);
                 border-radius: 4px;
                 border: none;
                 margin-right: 34px;
@@ -144,14 +144,14 @@
     }
 }
 
-@media(max-width: 500px) {
+@media (max-width: 500px) {
     .chat_page_container {
         padding-top: 20px;
         display: flex;
         justify-content: flex-end;
         align-items: center;
         flex-direction: column;
-    
+
         .chat_participant_container {
             width: 60vw;
             height: fit-content;
@@ -165,14 +165,14 @@
                 display: flex;
                 justify-content: center;
                 align-items: center;
-    
+
                 img {
                     height: 55px;
                     width: 60px;
                     border-radius: 50%;
                     margin-right: 32px;
                 }
-    
+
                 span {
                     color: gray;
                     font-size: 25px;
@@ -180,7 +180,7 @@
                 }
             }
         }
-    
+
         .chat_container {
             width: 100%;
             position: relative;
@@ -204,47 +204,43 @@
                     .speech-bubble-right {
                         margin-right: 12px;
                         position: relative;
-                        background: #7383F6;
-                        border-radius: .4em;
+                        background: #7383f6;
+                        border-radius: 0.4em;
                         width: 70%;
                         min-height: 50px;
                         height: fit-content;
                         word-break: break-all;
                         padding: 2px 2px 2px 2px;
                     }
-                      
-                    
                 }
                 .message_line_left {
                     margin-bottom: 16px;
                     width: 100%;
-                
+
                     .speech-bubble-left {
                         margin-left: 12px;
                         position: relative;
-                        background: #E9E8F7;
-                        border-radius: .4em;
+                        background: #e9e8f7;
+                        border-radius: 0.4em;
                         width: 70%;
                         min-height: 50px;
                         word-break: break-all;
-                        padding: 2px 2px 2px 2px; 
+                        padding: 2px 2px 2px 2px;
                     }
-                    
-                    
                 }
             }
             .sendmessage_box {
                 position: absolute;
                 bottom: 0;
                 width: 100%;
-        
+
                 div {
                     display: flex;
                     justify-content: center;
                     align-items: center;
                     background-color: white;
                     height: 60px;
-                    
+
                     input {
                         height: 40px;
                         width: 60%;
@@ -254,17 +250,18 @@
                         margin-left: 6px;
                         color: white;
                     }
-        
+
                     button {
                         height: 45px;
                         width: 40%;
                         font-size: 16px;
-                        color: rgb(255,255,255);
-                        background-color: rgb(63,81,181);
+                        color: rgb(255, 255, 255);
+                        background-color: rgb(63, 81, 181);
                         border-radius: 4px;
                         border: none;
                         margin-right: 6px;
                         font-size: 16px;
+                    
                     }
                 }
             }

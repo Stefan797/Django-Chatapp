@@ -16,23 +16,23 @@
   border-radius: 50%;
   margin-right: 50px;
 }
+.profile_page_container .image_and_username_container img:hover {
+  cursor: pointer;
+}
 .profile_page_container .image_and_username_container h1 {
-  color: blue;
+  color: rgb(63, 81, 181);
 }
 .profile_page_container .image_and_username_container form {
   position: absolute;
 }
 .profile_page_container .image_and_username_container form input {
-  z-index: 4;
-}
-.profile_page_container .image_and_username_container form button button:hover {
-  cursor: pointer;
+  display: none;
 }
 .profile_page_container .status_container {
   padding-top: 20px;
 }
 .profile_page_container .status_container div h3 {
-  color: blue;
+  color: rgb(63, 81, 181);
 }
 .profile_page_container .status_container div form input {
   height: 40px;
@@ -54,7 +54,7 @@
   margin-right: 34px;
   font-size: 16px;
 }
-.profile_page_container .status_container div form button .button:hover {
+.profile_page_container .status_container div form button:hover {
   cursor: pointer;
 }
 .profile_page_container .status_container_with_value {

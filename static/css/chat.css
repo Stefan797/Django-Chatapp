@@ -52,7 +52,7 @@
 }
 .chat_page_container .chat_container .messages_container .message_line_right .speech-bubble-right {
   position: relative;
-  background: #7383F6;
+  background: #7383f6;
   border-radius: 0.4em;
   width: 35%;
   min-height: 50px;
@@ -68,7 +68,7 @@
   width: 0;
   height: 0;
   border: 20px solid transparent;
-  border-top-color: #7383F6;
+  border-top-color: #7383f6;
   border-bottom: 0;
   border-right: 0;
   margin-left: -10px;
@@ -80,7 +80,7 @@
 }
 .chat_page_container .chat_container .messages_container .message_line_left .speech-bubble-left {
   position: relative;
-  background: #E9E8F7;
+  background: #e9e8f7;
   border-radius: 0.4em;
   width: 35%;
   min-height: 50px;
@@ -95,7 +95,7 @@
   width: 0;
   height: 0;
   border: 20px solid transparent;
-  border-top-color: #E9E8F7;
+  border-top-color: #e9e8f7;
   border-bottom: 0;
   border-left: 0;
   margin-left: -10px;
@@ -191,7 +191,7 @@
   .chat_page_container .chat_container .messages_container .message_line_right .speech-bubble-right {
     margin-right: 12px;
     position: relative;
-    background: #7383F6;
+    background: #7383f6;
     border-radius: 0.4em;
     width: 70%;
     min-height: 50px;
@@ -206,7 +206,7 @@
   .chat_page_container .chat_container .messages_container .message_line_left .speech-bubble-left {
     margin-left: 12px;
     position: relative;
-    background: #E9E8F7;
+    background: #e9e8f7;
     border-radius: 0.4em;
     width: 70%;
     min-height: 50px;
