@@ -36,6 +36,22 @@ chat.migrations.0004\_message\_chat module
    :undoc-members:
    :show-inheritance:
 
+chat.migrations.0005\_profile module
+------------------------------------
+
+.. automodule:: chat.migrations.0005_profile
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+chat.migrations.0006\_profile\_status\_alter\_profile\_file module
+------------------------------------------------------------------
+
+.. automodule:: chat.migrations.0006_profile_status_alter_profile_file
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
 Module contents
 ---------------
 

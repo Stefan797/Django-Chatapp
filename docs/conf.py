@@ -17,7 +17,7 @@ sys.path.insert(0, os.path.abspath('..'))
 
 # -- Project information -----------------------------------------------------
 
-project = 'Simple Chat App'
+project = 'Django Chat APP'
 copyright = '2022, Stefan Hübner'
 author = 'Stefan Hübner'
 
@@ -31,7 +31,7 @@ release = '2022'
 # extensions coming with Sphinx (named 'sphinx.ext.*') or your custom
 # ones.
 extensions = [
-    'sphinx.ext.autodoc' 
+    'sphinx.ext.autodoc'
 ]
 
 # Add any paths that contain templates here, relative to this directory.

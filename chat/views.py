@@ -9,6 +9,10 @@ from django.core import serializers
 from django.contrib.auth.models import User
 from django.db.models import Q
 
+
+# from django.db.models import signals
+# from django.contrib.auth.models import User
+
 # Create your views here.
 
 # def handler404(request, *args, **argv):
@@ -71,11 +75,9 @@ def profile_view(request):
     if request.method == 'POST':
         if (request.POST.get('profilstatus')):
             profile.status = request.POST.get('profilstatus')
-        # profile.save()
         print(request.FILES)
         if (request.FILES.get('profilepicture')):
             profile.file = request.FILES.get('profilepicture')
-
         print(profile.file)
         profile.save()
         return render(request, 'profile/index.html', {'email': request.user.email, 'file':  profile.file, 'status': profile.status, 'firstname': request.user.first_name, 'lastname': request.user.last_name}) 
@@ -84,4 +86,22 @@ def profile_view(request):
 def settings_view(request, exception=None):
     if request.method == 'GET':
         return render(request, 'settings/index.html',)
+
+
+# def delete_user(sender, instance=None, **kwargs):
+#     try:
+#         instance.user
+#     except User.DoesNotExist:
+#         pass
+#     else:
+#         instance.user.delete()
+# signals.post_delete.connect(delete_user, sender=UserProfile)
+
+
+# def delete_profile(request, id):  --> id : is auth user id
+#     user = User.objects.get(id=id)
+#     profile = UserProfileInfo.objects.filter(user=user)
+#     if request.method == 'POST':
+#         profile.delete()
+#         User.objects.filter(id=id).delete()
 

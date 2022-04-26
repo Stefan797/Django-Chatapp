@@ -4,7 +4,7 @@
   <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>chat.migrations package &mdash; Simple Chat App 2022 documentation</title>
+  <title>chat.migrations package &mdash; Django Chat APP 2022 documentation</title>
       <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
   <!--[if lt IE 9]>
@@ -25,7 +25,7 @@
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
         <div class="wy-side-nav-search" >
-            <a href="index.html" class="icon icon-home"> Simple Chat App
+            <a href="index.html" class="icon icon-home"> Django Chat APP
           </a>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
@@ -43,6 +43,8 @@
 <li><a class="reference internal" href="#chat-migrations-0002-message-delete-massage-module">chat.migrations.0002_message_delete_massage module</a></li>
 <li><a class="reference internal" href="#module-chat.migrations.0003_chat">chat.migrations.0003_chat module</a></li>
 <li><a class="reference internal" href="#module-chat.migrations.0004_message_chat">chat.migrations.0004_message_chat module</a></li>
+<li><a class="reference internal" href="#chat-migrations-0005-profile-module">chat.migrations.0005_profile module</a></li>
+<li><a class="reference internal" href="#module-chat.migrations.0006_profile_status_alter_profile_file">chat.migrations.0006_profile_status_alter_profile_file module</a></li>
 <li><a class="reference internal" href="#module-chat.migrations">Module contents</a></li>
 </ul>
 </li>
@@ -54,7 +56,7 @@
 
     <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-          <a href="index.html">Simple Chat App</a>
+          <a href="index.html">Django Chat APP</a>
       </nav>
 
       <div class="wy-nav-content">
@@ -116,6 +118,28 @@
 <dl class="py attribute">
 <dt class="sig sig-object py" id="chat.migrations.0004_message_chat.Migration.operations">
 <span class="sig-name descname"><span class="pre">operations</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">[&lt;AddField</span>&#160; <span class="pre">model_name='message',</span> <span class="pre">name='chat',</span> <span class="pre">field=&lt;django.db.models.fields.related.ForeignKey&gt;&gt;]</span></em><a class="headerlink" href="#chat.migrations.0004_message_chat.Migration.operations" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="chat-migrations-0005-profile-module">
+<h2>chat.migrations.0005_profile module<a class="headerlink" href="#chat-migrations-0005-profile-module" title="Permalink to this headline"></a></h2>
+</section>
+<section id="module-chat.migrations.0006_profile_status_alter_profile_file">
+<span id="chat-migrations-0006-profile-status-alter-profile-file-module"></span><h2>chat.migrations.0006_profile_status_alter_profile_file module<a class="headerlink" href="#module-chat.migrations.0006_profile_status_alter_profile_file" title="Permalink to this headline"></a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="chat.migrations.0006_profile_status_alter_profile_file.Migration">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">chat.migrations.0006_profile_status_alter_profile_file.</span></span><span class="sig-name descname"><span class="pre">Migration</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">app_label</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#chat.migrations.0006_profile_status_alter_profile_file.Migration" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">django.db.migrations.migration.Migration</span></code></p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="chat.migrations.0006_profile_status_alter_profile_file.Migration.dependencies">
+<span class="sig-name descname"><span class="pre">dependencies</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">[('chat',</span> <span class="pre">'0005_profile')]</span></em><a class="headerlink" href="#chat.migrations.0006_profile_status_alter_profile_file.Migration.dependencies" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="chat.migrations.0006_profile_status_alter_profile_file.Migration.operations">
+<span class="sig-name descname"><span class="pre">operations</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">[&lt;AddField</span>&#160; <span class="pre">model_name='profile',</span> <span class="pre">name='status',</span> <span class="pre">field=&lt;django.db.models.fields.CharField&gt;&gt;,</span> <span class="pre">&lt;AlterField</span>&#160; <span class="pre">model_name='profile',</span> <span class="pre">name='file',</span> <span class="pre">field=&lt;django.db.models.fields.files.FileField&gt;&gt;]</span></em><a class="headerlink" href="#chat.migrations.0006_profile_status_alter_profile_file.Migration.operations" title="Permalink to this definition"></a></dt>
 <dd></dd></dl>
 
 </dd></dl>
