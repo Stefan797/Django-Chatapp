@@ -42,6 +42,15 @@
     margin-top: 24px;
 }
 
+.newaccountlink {
+    color: brown;
+}
+
+.newaccountlink:hover {
+    cursor: pointer;
+}
+
+
 @media(max-width: 500px) {
     .ml {
         margin-left: 18px;

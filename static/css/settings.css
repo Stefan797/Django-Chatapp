@@ -58,7 +58,7 @@
   height: 30px;
   width: 120px;
 }
-.settings_page_container .logout_and_account_delete_container .placement div button .button:hover {
+.settings_page_container .logout_and_account_delete_container .placement div button:hover {
   cursor: pointer;
 }
 

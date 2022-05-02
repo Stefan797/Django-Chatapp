@@ -1,6 +1,7 @@
 from django.dispatch import receiver
 from django.http import HttpResponseRedirect
 from django.shortcuts import redirect, render
+from django.template import RequestContext
 from .models import Chat, Message, Profile
 from django.contrib.auth import authenticate, login
 from django.contrib.auth.decorators import login_required
@@ -8,15 +9,12 @@ from django.http import JsonResponse
 from django.core import serializers
 from django.contrib.auth.models import User
 from django.db.models import Q
-
+from django.contrib.auth import logout as auth_logout
 
 # from django.db.models import signals
 # from django.contrib.auth.models import User
 
 # Create your views here.
-
-# def handler404(request, *args, **argv):
-#     return redirect('settings')
 
 @login_required(login_url='/login/')
 def index(request, name):
@@ -40,8 +38,8 @@ def login_view(request):
         user = authenticate(username=request.POST.get('username'), password=request.POST.get('password'))
         if user:
             login(request, user)
-            print('request.GET.get(next)', request.GET.get('next'))
-            return HttpResponseRedirect(request.POST.get('redirect'))
+            # print('request.GET.get(next)', request.GET.get('next'))
+            return HttpResponseRedirect('/settings/')
         else:
             return render(request, 'auth/login.html', {'wrongPassword': True, 'redirect': redirect})
     return render(request, 'auth/login.html', {'redirect': redirect})
@@ -49,14 +47,14 @@ def login_view(request):
 def register_view(request):
     """
     With the post method, new users can be added by providing such as username, email, password. For the existing Django user model.
-    """
-    # print('DATEN', request.POST) = um die request daten in der Console anzusehen 
+    """ 
     if request.method == 'POST': 
         if request.POST.get('password') == request.POST.get('repeated_password'):
             user = User.objects.create_user(username=request.POST.get('username'), email=request.POST.get('email'), password=request.POST.get('password'))
+            return HttpResponseRedirect('/settings/')
         else:
-            return render(request, 'auth/register.html', {'wrongPassword': True}) # Todo: Fehlermeldung zurückgeben
-    return render(request, 'auth/register.html', )
+            return render(request, 'auth/register.html') # Todo: Fehlermeldung zurückgeben
+    return render(request, 'auth/register.html')
 
 # Login functions end
 # Pages functions start
@@ -84,24 +82,25 @@ def profile_view(request):
 
 @login_required(login_url='/login/')
 def settings_view(request, exception=None):
+    # current_user = request.user
+    # current_user.id = User.objects.get()
+    # user = User.objects.get(id=id)
+    # profile = Profile.objects.filter(user=user)
+    # if request.method == 'POST':
+    #     profile.delete()
+    #     User.objects.filter(id=id).delete()
     if request.method == 'GET':
-        return render(request, 'settings/index.html',)
-
-
-# def delete_user(sender, instance=None, **kwargs):
-#     try:
-#         instance.user
-#     except User.DoesNotExist:
-#         pass
-#     else:
-#         instance.user.delete()
-# signals.post_delete.connect(delete_user, sender=UserProfile)
+        return render(request, 'settings/index.html')
+    
 
 
 # def delete_profile(request, id):  --> id : is auth user id
 #     user = User.objects.get(id=id)
-#     profile = UserProfileInfo.objects.filter(user=user)
+#     profile = User.objects.filter(user=user)
 #     if request.method == 'POST':
 #         profile.delete()
 #         User.objects.filter(id=id).delete()
 
+def logout(request):
+    auth_logout(request)
+    return HttpResponseRedirect('/login/')

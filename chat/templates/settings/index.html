@@ -25,11 +25,16 @@
         <div class="placement">
             <div class="ec">
                 <img src="../static/img/logout.png">
-                <button>Ausloggen</button> <!--{% url logout_named_view %}-->
+                <button>
+                    <a href="/logout/">Ausloggen</a>
+                </button>
             </div>
             <div class="ec">
-                <img src="../static/img/deleteaccount.png">
-                <button>Lösche deinen Account</button>
+                <form method="post">
+                    {% csrf_token %}
+                    <img src="../static/img/deleteaccount.png">
+                    <button>Lösche deinen Account</button>
+                </form>
             </div>
         </div>
     </div>

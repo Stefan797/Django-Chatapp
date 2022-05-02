@@ -7,26 +7,26 @@
 
 {% endif %}
 
-<form class="ml mt" method="POST" action="/register/">
-
+<form class="ml mt" method="POST">
+    {% csrf_token %}
     <div class="sign_in_container ecc">
-        {% csrf_token %}
-        <input type="hidden" name="redirect" value="{{ redirect }}">
+        
+        <!--<input type="hidden" name="redirect" value="{{ redirect }}">-->
         <div class="mdl-textfield mdl-js-textfield">
-            <input name="username" class="mdl-textfield__input" type="text" id="sample1">
-            <label class="mdl-textfield__label" for="sample1">Username...</label>
+            <input name="username" class="mdl-textfield__input" type="text">
+            <label class="mdl-textfield__label">Username...</label>
         </div>
         <div class="mdl-textfield mdl-js-textfield">
-            <input name="email" class="mdl-textfield__input" type="text" id="sample1">
-            <label class="mdl-textfield__label" for="sample1">E-Mail...</label>
+            <input name="email" class="mdl-textfield__input" type="text">
+            <label class="mdl-textfield__label">E-Mail...</label>
         </div>
         <div class="mdl-textfield mdl-js-textfield">
-            <input name="password" class="mdl-textfield__input" type="password" id="sample1">
-            <label class="mdl-textfield__label" for="sample1">Passwort...</label>
+            <input name="password" class="mdl-textfield__input" type="password">
+            <label class="mdl-textfield__label">Passwort...</label>
         </div>
         <div class="mdl-textfield mdl-js-textfield">
-            <input name="repeated_password" class="mdl-textfield__input" type="password" id="sample1">
-            <label class="mdl-textfield__label" for="sample1">Nochmal Passwort eingeben...</label>
+            <input name="repeated_password" class="mdl-textfield__input" type="password">
+            <label class="mdl-textfield__label">Nochmal Passwort eingeben...</label>
         </div>
         <button class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored mt">
             Registrieren
