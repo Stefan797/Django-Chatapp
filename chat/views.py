@@ -64,7 +64,11 @@ def profile_view(request):
     Loads the profile page and using the Get or Post method.
     """
     user = request.user
-    profile = Profile.objects.get(user=request.user)
+    profile = ''
+    try:
+        profile = Profile.objects.get(user=request.user)
+    except Profile.DoesNotExist:
+        profile = Profile.objects.create(user=request.user)
     if request.method == 'GET':
         user_email = user.email
         user_firstname = user.first_name
@@ -82,13 +86,13 @@ def profile_view(request):
 
 @login_required(login_url='/login/')
 def settings_view(request, exception=None):
-    # current_user = request.user
-    # current_user.id = User.objects.get()
-    # user = User.objects.get(id=id)
-    # profile = Profile.objects.filter(user=user)
-    # if request.method == 'POST':
-    #     profile.delete()
-    #     User.objects.filter(id=id).delete()
+  
+    user = User.objects.get(id=request.user.id)
+    profile = Profile.objects.filter(user=user)
+    if request.method == 'POST':
+        profile.delete()
+        User.objects.filter(id=request.user.id).delete()
+        return HttpResponseRedirect('/login/')
     if request.method == 'GET':
         return render(request, 'settings/index.html')
     
