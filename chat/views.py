@@ -51,6 +51,7 @@ def register_view(request):
     if request.method == 'POST': 
         if request.POST.get('password') == request.POST.get('repeated_password'):
             user = User.objects.create_user(username=request.POST.get('username'), email=request.POST.get('email'), password=request.POST.get('password'))
+            login(request, user)
             return HttpResponseRedirect('/settings/')
         else:
             return render(request, 'auth/register.html') # Todo: Fehlermeldung zurückgeben
