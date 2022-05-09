@@ -17,11 +17,12 @@ from django.contrib import admin
 from django.urls import path
 
 from chat.views import index, login_view, register_view, profile_view, settings_view, logout
+
 # ,register_view - die Zeile drüber hinmachen
 # from django.conf.urls import url
-# from django.conf import settings
+from django.conf import settings
 # from django.contrib.auth.views import logout
- 
+from django.conf.urls.static import static
 
 handler404 = 'chat.views.settings_view' # /chat/views.py settings_view()
 
@@ -34,4 +35,4 @@ urlpatterns = [
     #url(r'^logout/$', logout, {'next_page': settings.LOGOUT_REDIRECT_URL}, name='logout'),
     path('profile/', profile_view),
     path('settings/', settings_view),
-] 
+] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
