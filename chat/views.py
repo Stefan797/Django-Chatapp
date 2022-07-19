@@ -11,16 +11,18 @@ from django.contrib.auth.models import User
 from django.db.models import Q
 from django.contrib.auth import logout as auth_logout
 
-# from django.db.models import signals
-# from django.contrib.auth.models import User
-
 # Create your views here.
 
 @login_required(login_url='/login/')
 def index(request, name):
+    """
+    Diese Seite 
+    """
     print('recived', name)
     chat_user = User.objects.get(username = name)
     chatuserprofile, created = Profile.objects.get_or_create(user = chat_user)
+    # Fehler Abfrage einbauen wenn user Name Falsch ist 
+    #django user 
     if request.method == 'POST':
         print("Received data " + request.POST['textmessage'])
         myChat = Chat.objects.get(id=1)
@@ -32,13 +34,15 @@ def index(request, name):
     print('FILE IS', chatuserprofile.file)
     return render(request, 'chat/index.html', {'messages': chatMessages, 'chatuser': name, 'profile': chatuserprofile})
 
+# def current_milli_time():
+#     return round(time.time() * 1000)
+
 def login_view(request):
     redirect = request.GET.get('next')
     if request.method == 'POST':
         user = authenticate(username=request.POST.get('username'), password=request.POST.get('password'))
         if user:
             login(request, user)
-            # print('request.GET.get(next)', request.GET.get('next'))
             return HttpResponseRedirect('/settings/')
         else:
             return render(request, 'auth/login.html', {'wrongPassword': True, 'redirect': redirect})
@@ -87,7 +91,9 @@ def profile_view(request):
 
 @login_required(login_url='/login/')
 def settings_view(request, exception=None):
-  
+    """
+    This function returns the settings HTML page and contains a user account delete function.
+    """
     user = User.objects.get(id=request.user.id)
     profile = Profile.objects.filter(user=user)
     if request.method == 'POST':
@@ -98,14 +104,9 @@ def settings_view(request, exception=None):
         return render(request, 'settings/index.html')
     
 
-
-# def delete_profile(request, id):  --> id : is auth user id
-#     user = User.objects.get(id=id)
-#     profile = User.objects.filter(user=user)
-#     if request.method == 'POST':
-#         profile.delete()
-#         User.objects.filter(id=id).delete()
-
 def logout(request):
+    """
+    This function logs out the logged in user.
+    """
     auth_logout(request)
     return HttpResponseRedirect('/login/')

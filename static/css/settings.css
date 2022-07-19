@@ -90,6 +90,10 @@
   .settings_page_container .logout_and_account_delete_container .placement div {
     height: 180px;
   }
+  .settings_page_container .logout_and_account_delete_container .placement div a {
+    text-decoration: none;
+    color: black;
+  }
 }
 
 /*# sourceMappingURL=settings.css.map */

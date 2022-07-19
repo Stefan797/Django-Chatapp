@@ -7,7 +7,7 @@
 
         div {
             h1 {
-                color: rgba(0,0,0, 0.7);
+                color: rgba(0, 0, 0, 0.7);
             }
 
             form {
@@ -24,15 +24,15 @@
                     height: 40px;
                     width: 20%;
                     font-size: 16px;
-                    color: rgb(255,255,255);
-                    background-color: rgb(63,81,181);
+                    color: rgb(255, 255, 255);
+                    background-color: rgb(63, 81, 181);
                     border-radius: 4px;
                     border: none;
                     margin-right: 34px;
-                    font-size: 16px;   
+                    font-size: 16px;
                     .button:hover {
                         cursor: pointer;
-                    }                 
+                    }
                 }
             }
         }
@@ -71,49 +71,46 @@
     }
 }
 
-
-@media(max-width: 500px) {
+@media (max-width: 500px) {
     .settings_page_container {
         min-height: 20vh;
-        justify-content: center; 
+        justify-content: center;
         align-items: center;
         flex-direction: column;
-    
+
         .searchbox_container {
-            height: 40vh; 
-    
+            height: 40vh;
+
             .frame {
-                width: 100%; 
-                
+                width: 100%;
+
                 h1 {
-                    font-size: 20px; 
+                    font-size: 20px;
                 }
-    
+
                 form {
                     input {
                         width: 100px;
                     }
                     button {
-
-                        width: 80%;   
+                        width: 80%;
                     }
                 }
             }
         }
-    
-        .logout_and_account_delete_container {
 
-            height: 35vh; 
-    
+        .logout_and_account_delete_container {
+            height: 35vh;
+
             .placement {
                 div {
-                    height: 180px; 
+                    height: 180px;
+                    a {
+                        text-decoration: none;
+                        color: black;
+                    }
                 }
             }
         }
-    }    
+    }
 }
-
-
-
-

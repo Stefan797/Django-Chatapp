@@ -32,20 +32,20 @@
       {% if message.author == user %}
       <div class="message_line_right">
         <div class="speech-bubble-right">
-          <span>[{{ message.created_at }}]</span> {{ message.author.first_name }}: <i>{{message.text}}</i>
+          <span>[{{ message.created_at | date:"M d, Y" }}]</span> {{ message.author.first_name }}: <i>{{message.text}}</i>
         </div>
       </div>
       {% else %}
       <div class="message_line_left">
         <div class="speech-bubble-left">
-          <span>[{{ message.created_at }}]</span> {{ message.author.first_name }}: <i>{{message.text}}</i>
+          <span>[{{ message.created_at | date:"M d, Y" }}]</span> {{ message.author.first_name }}: <i>{{message.text}}</i>
         </div>
       </div>
       {% endif %}
       {% endfor %}
       <!-- Für das beenden der Schleife -->
     </div>
-    <form class="sendmessage_box" onsubmit="sendMessage(); return false;" method="post">
+    <form class="sendmessage_box" onsubmit=" event.preventDefault(); sendMessage();"> <!-- Nochmal schauen wie die form und die Javascript Funktion die Nachrichten lädt -->
       <!-- return false weil action trotzdem gesendet wird obwohl es nicht da steht -->
       {% csrf_token %}
       <div>
